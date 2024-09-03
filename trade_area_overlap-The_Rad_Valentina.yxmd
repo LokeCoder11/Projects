@@ -1,0 +1,1675 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="54" width="900" height="204" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Trade Area County Overlap
+Level: Intermediate
+]]></Text>
+          <Font name="Microsoft Sans Serif" size="18" style="0" />
+          <TextColor name="White" />
+          <FillColor r="95" g="152" b="171" />
+          <Shape shape="0" />
+          <Justification Justification="3" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="570" y="54" width="386" height="204" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[This workflow finds intersecting polygons and calculates the area of overlap:
+
+For regulatory purposes we have been asked to identify the all the counties within a 15 mile radius of each of our stores as well as identifying the percent of the county’s area that is overlapped (Coverage).
+
+Part 1) Calculate the percent overlap by individual store
+
+Part 2) Calculate the percent of overlap by county for the entire store network
+]]></Text>
+          <Font name="Microsoft Sans Serif" size="9.75" style="0" />
+          <TextColor name="White" />
+          <FillColor name="White" />
+          <Shape shape="3" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="30" y="271" width="1319" height="824" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Workflow</Caption>
+          <Style TextColor="#2f4f4f" FillColor="#ecf2f2" BorderColor="#2f4f4f" Transparency="25" Margin="60" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="104">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="282" y="557" width="132" height="96" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>In the configuration select File Browse from the Connect to a File or Database dropdown and locate the Stores.yxdb in the Data folder.</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor r="129" g="129" b="129" />
+              <FillColor r="224" g="224" b="224" />
+              <Shape shape="0" />
+              <Justification Justification="3" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="125" y="438" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">_externals\1\Stores.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Connect to the Store dataset</AnnotationText>
+              <DefaultAnnotationText>Stores.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Store ID" source="TextInput:" type="Byte" />
+                <Field name="Address" size="25" source="TextInput:" type="String" />
+                <Field name="City" size="10" source="TextInput:" type="String" />
+                <Field name="State" size="2" source="TextInput:" type="String" />
+                <Field name="Zip" source="TextInput:" type="Int32" />
+                <Field name="Lat" source="TextInput:" type="Double" />
+                <Field name="Lon" source="TextInput:" type="Double" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="90" y="930" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">_externals\1\County_Polygons.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Input Data (5)</Name>
+              <AnnotationText>Connect to the County Polygons dataset</AnnotationText>
+              <DefaultAnnotationText>County_Polygons.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="18" source="TextInput:" type="String" />
+                <Field name="Key" size="5" source="TextInput:" type="String" />
+                <Field name="SpatialObj" size="2147483647" source="TextInput:" type="SpatialObj" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="123">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="281" y="355" width="157" height="24" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Container 123</Caption>
+              <Style TextColor="#314c4a" FillColor="#ffffff" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="True" />
+              <Folded value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="111">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="1290" y="582" width="144" height="120" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration set the 
+Spatial Object Field to "SpatialObj_Process". And in 
+Items To Output 
+select "Area (Square Miles)".</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="110">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="1122" y="594" width="144" height="108" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration set the 
+Spatial Object Field to "County_Obj" 
+And in Items To Output select "Area (Square Miles)".</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="113">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="1626" y="582" width="144" height="144" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text><![CDATA[In the configuration type "PCT_Overlap" in the first 
+Output Field row and change the 
+Type to Fixed Decimal with a value of '19.2'. And then enter the expression: 
+"[Overlap Area SqMi]/[County Area SqMi]*100"
+]]></Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="112">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="1458" y="582" width="144" height="144" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text><![CDATA[In the configuration click options > Select > Deselect All. And then select the following 
+"Store_ID,
+Name (Rename as County), 
+AreaSqMi (Rename as County Area SqMi), and 
+Area SqMi2 (Rename as Overlap Area SqMi)".
+
+]]></Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="106">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="437" y="558" width="144" height="96" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration set 
+X Field to Lon 
+and Y Field to Lat.</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="109">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="954" y="582" width="144" height="120" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration set the 
+1st Spatial Field to "SpatialObject_TradeArea" and then 2nd Spatial Field to "County_Obj". 
+
+For Action select " Create Intersection Object".</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="108">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="785" y="582" width="144" height="168" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration set 
+Targets to SpatialObject_TradeArea.,
+Set the Universe 
+to "Use Records from U Input".,
+Set the Universe Spatial Object Field to "Spatial Object".,
+Rename Universe SpatialObj to "County_Obj".</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="114">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="1793" y="582" width="144" height="108" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration set 
+Name to "Store ID" and Order to "Ascending". And in the second row 
+set Name to "PCT_Overlap" and the Order to "Descending".</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="120">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="1458" y="989" width="144" height="60" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration set 
+Name to "PCT_Overlap" and Order "Descending".</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="119">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="1290" y="990" width="144" height="108" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text><![CDATA[In the configuration click 
+Options > Select > Deslect All and then
+ select Name and rename it County. 
+Select County Area SqMi. Select Overlap Area SqMi.
+
+]]></Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="105">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="281" y="1038" width="276" height="108" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration select File Browse from the Connect to a File or Database dropdown and locate the ".\Data\County_Polygons.yxdb".</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="116">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="785" y="990" width="144" height="84" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration select 
+"SpatialObject_TradeArea" and then click Add &gt; Action &gt; SpatialObjectCombine.</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="118">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="1121" y="990" width="144" height="360" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text><![CDATA[In the configuration in the first row of 
+Output Field  type "County Area SqMi"
+ and leave the Type as Double. Enter the expression: 
+"ST_Area([County_Obj],"SqMi")".,
+
+In the second row of Output Field type "Overlap Area SqMi" and leave the 
+Type as Double. Enter the expression: 
+"ST_Area([IntersectPoly],"SqMi")".,
+
+In the third row of Output Field type in "PCT_Overlap" and leave the 
+Type as Double. Enter the expression: 
+"[Overlap Area SqMi]/[County Area SqMi]*100".
+]]></Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="117">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="954" y="990" width="144" height="156" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration set the 
+Targets Spatial field to SpatialObject_TradeArea and for  
+Universe select "Use Records from U Input" and select SpatialObj. Below change the Universe SpatialObj field name to  "County_Obj".</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="21">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+                <Position x="1662" y="918" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <TempFile>C:\ProgramData\Alteryx\Engine\Engine_17716_a41c6a05bd084097a46867d2b6871a19_\Engine_11356_ce8ee744b22b48278d511a80ed3ac572_.yxdb</TempFile>
+                  <Layout>
+                    <ViewMode>Single</ViewMode>
+                    <ViewSize value="100" />
+                    <View1>
+                      <DefaultTab>Table</DefaultTab>
+                      <Hints />
+                    </View1>
+                    <View2 />
+                  </Layout>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Run the workflow and review the results</AnnotationText>
+                  <DefaultAnnotationText>Run the workflow and review the results</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+            </Node>
+            <Node ToolID="10">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
+                <Position x="1158" y="510" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SpatialObj field="County_Obj" />
+                  <SelectedItems>
+                    <Item name="AreaMi" />
+                  </SelectedItems>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Find the area of the counties</AnnotationText>
+                  <DefaultAnnotationText>Find the area of the counties</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
+            </Node>
+            <Node ToolID="9">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialProcess.SpatialProcess">
+                <Position x="1050" y="510" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SpatialObjFields field1="SpatialObject_TradeArea" field2="County_Obj" />
+                  <Action action="Intersection" noEmpty="False" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Create the Intersection Spatial Obj</AnnotationText>
+                  <DefaultAnnotationText>Intersection</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialProcess" />
+            </Node>
+            <Node ToolID="12">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="1482" y="498" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Address" selected="False" />
+                    <SelectField field="City" selected="False" />
+                    <SelectField field="State" selected="False" />
+                    <SelectField field="Zip" selected="False" />
+                    <SelectField field="Lat" selected="False" />
+                    <SelectField field="Lon" selected="False" />
+                    <SelectField field="Centroid" selected="False" />
+                    <SelectField field="SpatialObject_TradeArea" selected="False" />
+                    <SelectField field="RadiusSize" selected="False" />
+                    <SelectField field="Name" selected="True" rename="County" />
+                    <SelectField field="Key" selected="False" />
+                    <SelectField field="County_Obj" selected="False" />
+                    <SelectField field="SpatialObj_Process" selected="False" />
+                    <SelectField field="AreaSqMi" selected="True" rename="County Area SqMi" />
+                    <SelectField field="AreaSqMi2" selected="True" rename="Overlap Area SqMi" />
+                    <SelectField field="LengthMi" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Remove unnecessary fields</AnnotationText>
+                  <DefaultAnnotationText>Remove unnecessary fields</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="11">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
+                <Position x="1325" y="498" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SpatialObj field="SpatialObj_Process" />
+                  <SelectedItems>
+                    <Item name="AreaMi" />
+                    <Item name="RectPolygon" />
+                  </SelectedItems>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Find the area of the overlap</AnnotationText>
+                  <DefaultAnnotationText>Find the area of the overlap</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
+            </Node>
+            <Node ToolID="8">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
+                <Position x="954" y="510" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Target SpatialObj="SpatialObject_TradeArea" />
+                  <Universe SpatialObj="SpatialObj" />
+                  <Method method="Intersects" />
+                  <SelectConfiguration>
+                    <Configuration outputConnection="Matched">
+                      <OrderChanged value="False" />
+                      <SelectFields>
+                        <SelectField field="Universe_SpatialObj" selected="True" rename="County_Obj" />
+                        <SelectField field="*Unknown" selected="True" />
+                      </SelectFields>
+                    </Configuration>
+                  </SelectConfiguration>
+                  <IntersectPoly value="False" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Find the counties that intersect the store trade areas</AnnotationText>
+                  <DefaultAnnotationText>SpatialObject_TradeArea Intersects SpatialObj</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialMatch" />
+            </Node>
+            <Node ToolID="7">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.TradeArea.TradeArea">
+                <Position x="654" y="450" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SpatialObj field="Centroid" includeOut="True" />
+                  <Units units="Miles" noOverlap="False" />
+                  <Radius_FromField value="False" />
+                  <Radii>15.0</Radii>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Create 'trade area' circles around stores</AnnotationText>
+                  <DefaultAnnotationText>15.0 Miles</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxTradeArea" />
+            </Node>
+            <Node ToolID="6">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.CreatePoints.CreatePoints">
+                <Position x="473" y="450" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Fields fieldX="Lon" fieldY="Lat" />
+                  <Mode>Double</Mode>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Create centroids from the data</AnnotationText>
+                  <DefaultAnnotationText>Create centroids from the data</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxCreatePoints" />
+            </Node>
+            <Node ToolID="18">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+                <Position x="1158" y="917" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <FormulaFields>
+                    <FormulaField field="County Area SqMi" type="Double" size="8" expression="ST_Area([County_Obj],&quot;SqMi&quot;)" />
+                    <FormulaField field="Overlap Area SqMi" type="Double" size="8" expression="ST_Area([IntersectPoly],&quot;SqMi&quot;)" />
+                    <FormulaField field="Pct_Overlap" type="Double" size="8" expression="[Overlap Area SqMi]/[County Area SqMi]*100" />
+                  </FormulaFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Calculate the County Area SqMi, Overlap Area SqMi and 
+Pct_Overlap</AnnotationText>
+                  <DefaultAnnotationText>County Area SqMi=ST_Area([County_Obj],"SqMi")
+Overlap Area SqMi=ST_Area([IntersectPoly],"SqMi")
+Pct_Overlap=[Overlap Area SqMi]/[County Area SqMi]*100</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+            </Node>
+            <Node ToolID="17">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
+                <Position x="1014" y="918" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Target SpatialObj="SpatialObjCombine_SpatialObject_TradeArea" />
+                  <Universe SpatialObj="SpatialObj" />
+                  <Method method="Intersects" />
+                  <SelectConfiguration>
+                    <Configuration outputConnection="Matched">
+                      <OrderChanged value="False" />
+                      <SelectFields>
+                        <SelectField field="Universe_SpatialObj" selected="True" rename="County_Obj" />
+                        <SelectField field="*Unknown" selected="True" />
+                      </SelectFields>
+                    </Configuration>
+                  </SelectConfiguration>
+                  <IntersectPoly value="True" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Find the counties that intersect the combined trade area</AnnotationText>
+                  <DefaultAnnotationText>SpatialObjCombine_SpatialObject_TradeArea Intersects SpatialObj</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialMatch" />
+            </Node>
+            <Node ToolID="20">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+                <Position x="1482" y="930" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SortInfo locale="0">
+                    <Field field="Pct_Overlap" order="Descending" />
+                  </SortInfo>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Sort by store id and percent overlap (descending)</AnnotationText>
+                  <DefaultAnnotationText>Pct_Overlap - Descending</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+            </Node>
+            <Node ToolID="19">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="1326" y="918" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Name" selected="True" rename="County" />
+                    <SelectField field="County Area SqMi" selected="True" />
+                    <SelectField field="Overlap Area SqMi" selected="True" />
+                    <SelectField field="Pct_Overlap" selected="True" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Remove unnecessary fields</AnnotationText>
+                  <DefaultAnnotationText>Remove unnecessary fields</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="13">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+                <Position x="1650" y="510" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <FormulaFields>
+                    <FormulaField field="Pct_Overlap" type="FixedDecimal" size="19.2" expression="[Overlap Area SqMi]/[County Area SqMi]*100" />
+                  </FormulaFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Calculate Pct_Overlap</AnnotationText>
+                  <DefaultAnnotationText>Pct_Overlap=[Overlap Area SqMi]/[County Area SqMi]*100</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+            </Node>
+            <Node ToolID="14">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+                <Position x="1806" y="510" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SortInfo locale="0">
+                    <Field field="Store ID" order="Ascending" />
+                    <Field field="Pct_Overlap" order="Descending" />
+                  </SortInfo>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Sort by Store ID and Pct_Overlap (descending)</AnnotationText>
+                  <DefaultAnnotationText>Store ID - Ascending
+Pct_Overlap - Descending</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+            </Node>
+            <Node ToolID="16">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+                <Position x="918" y="906" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SummarizeFields>
+                    <SummarizeField field="SpatialObject_TradeArea" action="SpatialObjCombine" rename="SpatialObjCombine_SpatialObject_TradeArea" />
+                  </SummarizeFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Combine Trade Area</AnnotationText>
+                  <DefaultAnnotationText>Combine Trade Area</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+            </Node>
+            <Node ToolID="15">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+                <Position x="1974" y="510" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <TempFile>C:\ProgramData\Alteryx\Engine\Engine_17716_a41c6a05bd084097a46867d2b6871a19_\Engine_11356_d2fecc0ac079483d96077e933d823643_.yxdb</TempFile>
+                  <Layout>
+                    <ViewMode>Single</ViewMode>
+                    <ViewSize value="100" />
+                    <View1>
+                      <DefaultTab>Map</DefaultTab>
+                      <Hints>
+                        <Map>
+                          <BaseMap>Latest:Tele_Atlas_US</BaseMap>
+                        </Map>
+                      </Hints>
+                    </View1>
+                    <View2 />
+                  </Layout>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Run the workflow and review the results</AnnotationText>
+                  <DefaultAnnotationText>Run the workflow and review the results</DefaultAnnotationText>
+                  <Left value="True" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+            </Node>
+            <Node ToolID="107">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="606" y="558" width="144" height="84" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>In the configuration set 
+Specific Value to 15 
+and Units to Radius.</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor r="129" g="129" b="129" />
+                  <FillColor r="224" g="224" b="224" />
+                  <Shape shape="0" />
+                  <Justification Justification="3" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="124">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="210" y="930" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\VRadcha1\AppData\Local\Temp\Engine_32188_648963a13a884547a9fa8628e01c8af7_\Engine_28368_c9e94a1d01a04beb841882f263e8534f_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>Latest:CloudMade</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="125">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.CreatePoints.CreatePoints">
+            <Position x="269" y="438" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Fields fieldX="Lon" fieldY="Lat" />
+              <Mode>Double</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxCreatePoints" />
+        </Node>
+        <Node ToolID="126">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="462" y="437" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\VRadcha1\AppData\Local\Temp\Engine_32188_648963a13a884547a9fa8628e01c8af7_\Engine_28368_d1fff2c92c5e426b964f634510fffed1_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>Latest:CloudMade</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="127">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.TradeArea.TradeArea">
+            <Position x="366" y="437" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SpatialObj field="Centroid" includeOut="True" />
+              <Units units="Miles" noOverlap="False" />
+              <Radius_FromField value="False" />
+              <Radii>15</Radii>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>15 Miles</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxTradeArea" />
+        </Node>
+        <Node ToolID="128">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
+            <Position x="510" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Target SpatialObj="SpatialObject_TradeArea" />
+              <Universe SpatialObj="SpatialObj" />
+              <Method method="Intersects" />
+              <SelectConfiguration>
+                <Configuration outputConnection="Matched">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Universe_SpatialObj" selected="True" rename="CountyObj" input="Universe_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+              <IntersectPoly value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>SpatialObject_TradeArea Where Target Intersects Universe SpatialObj</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialMatch" />
+        </Node>
+        <Node ToolID="129">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="606" y="522" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\VRadcha1\AppData\Local\Temp\Engine_32188_648963a13a884547a9fa8628e01c8af7_\Engine_28368_3457093026de4c96ab1f08872d5de03a_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>Latest:CloudMade</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="130">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="606" y="594" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\VRadcha1\AppData\Local\Temp\Engine_32188_648963a13a884547a9fa8628e01c8af7_\Engine_28368_6c613da3394f403184facf5488ca4bd8_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>Latest:CloudMade</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="131">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialProcess.SpatialProcess">
+            <Position x="726" y="546" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SpatialObjFields field1="SpatialObject_TradeArea" field2="CountyObj" />
+              <Action action="Intersection" noEmpty="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Intersection</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialProcess" />
+        </Node>
+        <Node ToolID="132">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="918" y="546" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\VRadcha1\AppData\Local\Temp\Engine_32188_648963a13a884547a9fa8628e01c8af7_\Engine_28368_23d5b66f8d474792ae1e9ad4fd9061ec_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>Latest:CloudMade</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="133">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="822" y="546" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="SpatialObj_Process" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="134">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
+            <Position x="822" y="630" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SpatialObj field="CountyObj" />
+              <SelectedItems>
+                <Item name="AreaMi" />
+              </SelectedItems>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
+        </Node>
+        <Node ToolID="135">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
+            <Position x="954" y="630" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SpatialObj field="SpatialObj_Process" />
+              <SelectedItems>
+                <Item name="AreaMi" />
+              </SelectedItems>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
+        </Node>
+        <Node ToolID="136">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1050" y="630" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Store ID" selected="True" />
+                <SelectField field="SpatialObject_TradeArea" selected="True" />
+                <SelectField field="Name" selected="True" />
+                <SelectField field="AreaSqMi" selected="True" />
+                <SelectField field="AreaSqMi2" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="137">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1134" y="630" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="[AreaSqMi2]/[AreaSqMi]*100" field="Percent Overlap" size="8" type="Double" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[Percent Overlap = [AreaSqMi2]/[AreaSqMi]*100
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="138">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1230" y="630" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\VRadcha1\AppData\Local\Temp\Engine_32188_648963a13a884547a9fa8628e01c8af7_\Engine_28368_a56873ea37ec4924b2f600495b8ae0ce_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>Latest:CloudMade</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="140">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="534" y="786" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="SpatialObject_TradeArea" action="SpatialObjCombine" rename="SpatialObjCombine_SpatialObject_TradeArea" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="141">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="630" y="786" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\VRadcha1\AppData\Local\Temp\Engine_32188_648963a13a884547a9fa8628e01c8af7_\Engine_28368_9a7da4d50ef248df878b19aa385f2f56_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>Latest:CloudMade</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="142">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
+            <Position x="762" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Target SpatialObj="SpatialObjCombine_SpatialObject_TradeArea" />
+              <Universe SpatialObj="SpatialObj" />
+              <Method method="Intersects" />
+              <SelectConfiguration>
+                <Configuration outputConnection="Matched">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Universe_SpatialObj" selected="True" rename="CountyObj" input="Universe_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+              <IntersectPoly value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>SpatialObjCombine_SpatialObject_TradeArea Where Target Intersects Universe SpatialObj</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialMatch" />
+        </Node>
+        <Node ToolID="143">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1026" y="834" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\VRadcha1\AppData\Local\Temp\Engine_32188_648963a13a884547a9fa8628e01c8af7_\Engine_28368_446d2b2f678d4287a3e1af1ed43028d5_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>Latest:CloudMade</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="144">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="930" y="906" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\VRadcha1\AppData\Local\Temp\Engine_32188_648963a13a884547a9fa8628e01c8af7_\Engine_28368_7cdde70eb4fb4a709824c4238106bec0_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>Latest:CloudMade</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="145">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="930" y="834" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="ST_Area([CountyObj],&quot;SqMi&quot;)" field="CountySqMiles" size="8" type="Double" />
+                <FormulaField expression="ST_Area([IntersectPoly],&quot;SqMi&quot;)" field="OverlapSqMiles" size="8" type="Double" />
+                <FormulaField expression="[OverlapSqMiles]/[CountySqMiles]*100" field="PecentOverlap" size="8" type="Double" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>CountySqMiles = ST_Area([CountyObj],"SqMi")
+OverlapSqMiles = ST_Area([IntersectP...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="122">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="56" y="1484" width="656" height="84" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Alteryx Educational Asset - Terms and Conditions</Caption>
+          <Style TextColor="#0090c8" FillColor="#eaeaea" BorderColor="#0090c8" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="121">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="66" y="1518" width="636" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Use of this Alteryx asset is for educational purposes only and bound by the conditions set forth on alteryx.com/terms-and-conditions. Alteryx Information may not be reproduced, transmitted or distributed without Alteryx, Inc.'s permission.”</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor r="0" g="144" b="200" />
+              <FillColor name="White" />
+              <Shape shape="3" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="125" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="8" Connection="Universe" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="17" Connection="Universe" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="17" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="124" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="128" Connection="Universe" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="127" Connection="Output" />
+      <Destination ToolID="128" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="142" Connection="Universe" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="140" Connection="Output" />
+      <Destination ToolID="142" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Matched" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Matched" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="125" Connection="Output" />
+      <Destination ToolID="127" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="127" Connection="Output" />
+      <Destination ToolID="126" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="127" Connection="Output" />
+      <Destination ToolID="140" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="128" Connection="Matched" />
+      <Destination ToolID="129" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="128" Connection="Unmatched" />
+      <Destination ToolID="130" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="128" Connection="Matched" />
+      <Destination ToolID="131" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="131" Connection="Output" />
+      <Destination ToolID="133" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="131" Connection="Output" />
+      <Destination ToolID="134" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="133" Connection="Output" />
+      <Destination ToolID="132" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="134" Connection="Output" />
+      <Destination ToolID="135" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="135" Connection="Output" />
+      <Destination ToolID="136" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="136" Connection="Output" />
+      <Destination ToolID="137" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="137" Connection="Output" />
+      <Destination ToolID="138" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="140" Connection="Output" />
+      <Destination ToolID="141" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="142" Connection="Unmatched" />
+      <Destination ToolID="144" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="142" Connection="Matched" />
+      <Destination ToolID="145" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="145" Connection="Output" />
+      <Destination ToolID="143" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>trade_area_overlap-The_Rad_Valentina</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="5bf37bb0-4cc0-4263-9789-761d16f2c89e" />
+      <Telemetry>
+        <PreviousWorkflowId value="d1193209-cc00-4c60-ac16-becacd468b53" />
+        <OriginWorkflowId value="d1193209-cc00-4c60-ac16-becacd468b53" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

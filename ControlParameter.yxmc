@@ -1,0 +1,756 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.1" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="54" width="732" height="72" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text />
+          <Font name="Segoe UI" size="20.25" style="0" />
+          <TextColor name="White" />
+          <FillColor r="13" g="35" b="69" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="426" y="54" width="360" height="72" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>The Control Parameter tool tells a Batch Macro what values to use for each batch.</Text>
+          <Font name="Segoe UI" size="9" style="0" />
+          <TextColor name="White" />
+          <FillColor r="111" g="111" b="111" />
+          <Shape shape="3" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="203" width="360" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>1) Run the workflow.</Text>
+          <Font name="Segoe UI" size="8.25" style="1" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="1" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="414" y="203" width="372" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>2) Select a Browse tool to view the results in the Results window.</Text>
+          <Font name="Segoe UI" size="8.25" style="1" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="1" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="138" width="732" height="53" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[This workflow is a Batch Macro. When running this workflow it will run the tools as a standard workflow. To see how it behaves as a Batch Macro, open a new workflow and insert (right-click > Insert > Macro - ControlParameter.yxmc) this macro. Use the Master Store File - CO.yxdb in the SampleData folder and select the Region column in the macro's configuration.
+]]></Text>
+          <Font name="Segoe UI" size="8.25" style="1" />
+          <TextColor name="Red" />
+          <FillColor name="White" />
+          <Shape shape="1" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="239" width="732" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Use a Control Parameter</Text>
+          <Font name="Segoe UI" size="9.75" style="0" />
+          <TextColor r="130" g="141" b="169" />
+          <FillColor r="225" g="231" b="242" />
+          <Shape shape="1" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="268" width="732" height="74" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>The Control Parameter is used to specify what values the macro should use for each batch it processes. 
+
+Configure the tool by adding a label for the Control Parameter. When used in a workflow, the macro will show a question asking the end user to select the required column to be used.</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="3" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Label.Label">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="318" y="426" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="618" y="510" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_7432_fe0cb7d060914f5eba615cc4968a02a1_\Engine_13716_b7fcab709e5e4ce5aa6737ed8719df1c_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Map</DefaultTab>
+              <Hints>
+                <Map>
+                  <BaseMap>[No Base Map]</BaseMap>
+                </Map>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Browse (17)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="618" width="732" height="120" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text />
+          <Font name="Segoe UI" size="14.25" style="0" />
+          <TextColor name="White" />
+          <FillColor r="13" g="35" b="69" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="330" y="618" width="456" height="120" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Every Batch Macro must have at least one Control Parameter. Multiple Control Parameters can be used if necessary, the end user will just need to specify each value to be used.
+
+The Control Parameter input will show up with an upside down question mark as shown on the icon to the left. Only 1 Control Parameter input anchor will show even if multiple Control Parameters have been configured. Each column to be used as a Control Parameter will need to be in a single data stream as the input anchor can only accept 1 connection.</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="White" />
+          <FillColor name="White" />
+          <Shape shape="3" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="318" y="342" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="318" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>Region</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-11-19 12:32:39</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>North</Operand>
+              <StartDate>2019-11-19 12:32:39</StartDate>
+              <EndDate>2019-11-19 12:32:39</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Region] = "North"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Address" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="City" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="State" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="ZIP" source="TextInput:" type="Int32" />
+            <Field name="Lat" source="TextInput:" type="Double" />
+            <Field name="Lon" source="TextInput:" type="Double" />
+            <Field name="Store Point" size="2147483647" source="TextInput:" type="SpatialObj" />
+            <Field name="County " size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Region" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Total Sales" source="TextInput:" type="Int32" />
+            <Field name="Credit Sales" source="TextInput:" type="Int32" />
+            <Field name="Total Customers" source="TextInput:" type="Int32" />
+            <Field name="Avg Sales per Customer" source="TextInput:" type="Double" />
+            <Field name="Perf Indicator" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="SpatialObject_TradeArea" size="2147483647" source="TextInput:" type="SpatialObj" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Address" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="City" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="State" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="ZIP" source="TextInput:" type="Int32" />
+            <Field name="Lat" source="TextInput:" type="Double" />
+            <Field name="Lon" source="TextInput:" type="Double" />
+            <Field name="Store Point" size="2147483647" source="TextInput:" type="SpatialObj" />
+            <Field name="County " size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Region" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Total Sales" source="TextInput:" type="Int32" />
+            <Field name="Credit Sales" source="TextInput:" type="Int32" />
+            <Field name="Total Customers" source="TextInput:" type="Int32" />
+            <Field name="Avg Sales per Customer" source="TextInput:" type="Double" />
+            <Field name="Perf Indicator" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="SpatialObject_TradeArea" size="2147483647" source="TextInput:" type="SpatialObj" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="150" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="2" />
+          <Fields>
+            <Field name="Address" />
+            <Field name="City" />
+            <Field name="State" />
+            <Field name="ZIP" />
+            <Field name="Lat" />
+            <Field name="Lon" />
+            <Field name="Store Point" />
+            <Field name="County " />
+            <Field name="Region" />
+            <Field name="Total Sales" />
+            <Field name="Credit Sales" />
+            <Field name="Total Customers" />
+            <Field name="Avg Sales per Customer" />
+            <Field name="Perf Indicator" />
+            <Field name="SpatialObject_TradeArea" />
+          </Fields>
+          <Data>
+            <r>
+              <c>7899 Wadsworth Blvd</c>
+              <c>Arvada</c>
+              <c>CO</c>
+              <c>80003</c>
+              <c>39.840024796184</c>
+              <c>-105.082088467523</c>
+              <c>{ "type": "Point", "coordinates": [ -105.082088, 39.840025 ] }</c>
+              <c>Jefferson County</c>
+              <c>North</c>
+              <c>474482</c>
+              <c>36611</c>
+              <c>67</c>
+              <c>7081.82089552239</c>
+              <c>High</c>
+              <c>{ "type": "Polygon", "coordinates": [ [ [ -122.273712, 41.086597 ], [ -122.358856, 41.051395 ], [ -122.301178, 41.176587 ], [ -122.273712, 41.086597 ] ] ] }</c>
+            </r>
+            <r>
+              <c>14200 E Ellsworth Ave</c>
+              <c>Aurora</c>
+              <c>CO</c>
+              <c>80012</c>
+              <c>39.7164428746951</c>
+              <c>-104.822288162203</c>
+              <c>{ "type": "Point", "coordinates": [ -104.822288, 39.716443 ] }</c>
+              <c>Arapahoe County</c>
+              <c>South</c>
+              <c>368825</c>
+              <c>46044</c>
+              <c>369</c>
+              <c>999.525745257453</c>
+              <c>Low</c>
+              <c>{ "type": "Polygon", "coordinates": [ [ [ -122.273712, 41.086597 ], [ -122.358856, 41.051395 ], [ -122.301178, 41.176587 ], [ -122.273712, 41.086597 ] ] ] }</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="City" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="State" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="ZIP" source="TextInput:" type="Int32" />
+            <Field name="Lat" source="TextInput:" type="Double" />
+            <Field name="Lon" source="TextInput:" type="Double" />
+            <Field name="Store Point" size="2147483647" source="TextInput:" type="SpatialObj" />
+            <Field name="County " size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Region" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Total Sales" source="TextInput:" type="Int32" />
+            <Field name="Credit Sales" source="TextInput:" type="Int32" />
+            <Field name="Total Customers" source="TextInput:" type="Int32" />
+            <Field name="Avg Sales per Customer" source="TextInput:" type="Double" />
+            <Field name="Perf Indicator" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="SpatialObject_TradeArea" size="2147483647" source="TextInput:" type="SpatialObj" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="426" y="510" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="Total Sales" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Total Sales - Descending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="City" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="State" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="ZIP" source="TextInput:" type="Int32" />
+            <Field name="Lat" source="TextInput:" type="Double" />
+            <Field name="Lon" source="TextInput:" type="Double" />
+            <Field name="Store Point" size="2147483647" source="TextInput:" type="SpatialObj" />
+            <Field name="County " size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Region" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Total Sales" source="TextInput:" type="Int32" />
+            <Field name="Credit Sales" source="TextInput:" type="Int32" />
+            <Field name="Total Customers" source="TextInput:" type="Int32" />
+            <Field name="Avg Sales per Customer" source="TextInput:" type="Double" />
+            <Field name="Perf Indicator" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="SpatialObject_TradeArea" size="2147483647" source="TextInput:" type="SpatialObj" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="522" y="510" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>Rank</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Rank" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="City" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="State" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="ZIP" source="TextInput:" type="Int32" />
+            <Field name="Lat" source="TextInput:" type="Double" />
+            <Field name="Lon" source="TextInput:" type="Double" />
+            <Field name="Store Point" size="2147483647" source="TextInput:" type="SpatialObj" />
+            <Field name="County " size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Region" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="Total Sales" source="TextInput:" type="Int32" />
+            <Field name="Credit Sales" source="TextInput:" type="Int32" />
+            <Field name="Total Customers" source="TextInput:" type="Int32" />
+            <Field name="Avg Sales per Customer" source="TextInput:" type="Double" />
+            <Field name="Perf Indicator" size="2147483647" source="TextInput:" type="V_String" />
+            <Field name="SpatialObject_TradeArea" size="2147483647" source="TextInput:" type="SpatialObj" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="204" y="643" width="75" height="67" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text />
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="3" />
+          <Justification Justification="4" />
+          <BG_Image>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</BG_Image>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="54" width="324" height="72" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Control Parameter
+ Interface Tool</Text>
+          <Font name="Segoe UI" size="20.25" style="0" />
+          <TextColor name="White" />
+          <FillColor r="13" g="35" b="69" />
+          <Shape shape="3" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="618" width="204" height="120" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[ More Info]]></Text>
+          <Font name="Segoe UI" size="14.25" style="0" />
+          <TextColor name="White" />
+          <FillColor r="13" g="35" b="69" />
+          <Shape shape="3" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="PortfolioPluginsGui.Email.Email">
+        <Position x="630" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SMTPServerName />
+          <ToIsField value="False" />
+          <To />
+          <CcIsField value="False" />
+          <Cc />
+          <BccIsField value="False" />
+          <Bcc />
+          <FromIsField value="False" />
+          <From />
+          <SubjectIsField value="False" />
+          <Subject />
+          <BodyIsField value="True" />
+          <Body>Lat</Body>
+          <UserName />
+          <Attachments>
+            <Attachment>
+              <ValueIsField value="True" />
+              <Value>State</Value>
+            </Attachment>
+          </Attachments>
+          <Enabled>True</Enabled>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxComposerEmail" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection name="#1">
+      <Origin ToolID="15" Connection="Action" />
+      <Destination ToolID="22" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="20" Connection="Question" />
+      <Destination ToolID="15" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="True" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="False" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <SortedGrouping value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Control Parameter (20)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>ControlParameter</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="e2521217-a022-4837-8b8a-0a8d12aaa1b7" />
+      <Telemetry>
+        <PreviousWorkflowId value="5904c8ac-07b4-4ebd-a712-509423a847ba" />
+        <OriginWorkflowId value="5904c8ac-07b4-4ebd-a712-509423a847ba" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="15" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>22</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Radio Button Example</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>Label</Type>
+              <Description><![CDATA[Selecting Radio Button 2 collapses this label. ]]></Description>
+              <Name>Label (13)</Name>
+              <ToolId value="13" />
+            </Question>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>Select region column</Description>
+              <Name>Control Parameter (20)</Name>
+              <ToolId value="20" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="0" />
+      <MacroInputs />
+      <MacroOutputs />
+      <BatchMacro>
+        <OutputMode>AllSame</OutputMode>
+        <ControlParams>
+          <ControlParam>
+            <Name>Control Parameter (20)</Name>
+            <Description>Select region column</Description>
+          </ControlParam>
+        </ControlParams>
+      </BatchMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="17" Selected="False" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
